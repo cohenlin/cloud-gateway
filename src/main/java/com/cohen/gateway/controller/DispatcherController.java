@@ -13,6 +13,6 @@ public class DispatcherController {
 
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String hello() {
-        return restTemplate.getForEntity("http://wechat-app-server/basic/api/hello", String.class).getBody();
+        return restTemplate.getForEntity("http://WECHAT-APP-SERVER/hello", String.class).getBody();
     }
 }
