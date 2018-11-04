@@ -7,6 +7,8 @@ import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @Component
 public class AuthFilter extends ZuulFilter {
@@ -19,8 +21,19 @@ public class AuthFilter extends ZuulFilter {
         //校验token
         if (token == null) {
             System.out.println("// TODO token为空，禁止访问!");
+            HttpServletResponse response = ctx.getResponse();
+            response.setCharacterEncoding("utf-8");  //设置字符集
+            response.setContentType("text/html; charset=utf-8"); //设置相应格式
+            // 过滤请求
             ctx.setSendZuulResponse(false);
+            // 设置返回状态码
             ctx.setResponseStatusCode(401);
+            try {
+                response.getWriter().write("token为空，禁止访问!");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            ctx.setResponse(response);
             return null;
         } else {
             System.out.println("// TODO 根据token获取相应的登录信息，进行校验（略）!");
