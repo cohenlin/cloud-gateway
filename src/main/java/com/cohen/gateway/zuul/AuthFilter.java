@@ -1,4 +1,4 @@
-package com.cohen.gateway.fillter;
+package com.cohen.gateway.zuul;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Zuul AuthFilter
+ */
 @Component
 public class AuthFilter extends ZuulFilter {
 

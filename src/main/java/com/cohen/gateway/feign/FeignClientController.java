@@ -1,4 +1,4 @@
-package com.cohen.gateway.controller;
+package com.cohen.gateway.feign;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
