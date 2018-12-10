@@ -10,24 +10,24 @@ import java.util.UUID;
  * @email: ljc@choicesoft.com.cn
  */
 public class User {
-    private String id;
+    private String key;
     private String name;
     private Integer age;
     private String address;
 
     public User(String name, Integer age, String address) {
-        this.id = UUID.randomUUID().toString().replaceAll("-", "");
+        this.key = UUID.randomUUID().toString().replaceAll("-", "");
         this.name = name;
         this.age = age;
         this.address = address;
     }
 
-    public String getId() {
-        return id;
+    public String getKey() {
+        return key;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public String getName() {
